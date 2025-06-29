@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DCHM</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  <script type="module" src="static/js/model-viewer.min.js"></script>
+
+  <link href="./static/css/sans.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/selection-panel.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="./static/js/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- <h1 class="title is-1 publication-title">Puzzles: Unbounded Video-Depth Augmentation for Scalable End-to-End 3D Reconstruction</h1> -->
+            <h1 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">DCHM: Depth-Consistent Human Modeling </h1>
+            <h1 class="title is-2 publication-title" style="margin-top: 0">for Multiview Detection</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="https://jiahao-ma.github.io/">Jiahao Ma</a><sup>1,2</sup>,</span>
+              <span class="author-block"><a href="https://scholar.google.com/citations?user=OfOGvmUAAAAJ&hl=en">Tianyu Wang</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="http://users.cecs.anu.edu.au/~mliu/">Miaomiao Liu</a><sup>1</sup>,</span>
+              <span class="author-block"><a href="https://people.csiro.au/a/d/david-ahmedtaristizabal">David Ahmedt-Aristizabal</a><sup>2</sup>,</span>
+              <span class="author-block"><a href="https://people.csiro.au/N/C/Chuong-Nguyen">Chuong Nguyen</a><sup>2</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Australian National University,</span>
+              <span class="author-block"><sup>2</sup>CSIRO's Data61</span>
+            </div>
+
+            <div class="is-size-5 publication-authors" style="margin-top: 0.5em;">
+              <b>ICCV 2025</b>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+
+                <span class="link-block">
+                  <a href="https://github.com/Jiahao-Ma/DCHM" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+
+                <span class="link-block">
+                  <a href="https://github.com/Jiahao-Ma/DCHM" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <!-- <video id="teaser" autoplay controls muted loop playsinline height="100%">
+          <source src="materials\video\Puzzles.mp4" type="video/mp4">
+        </video> -->
+        <img src="materials/image/DCHM_Cover.jpg" class="center" style="margin-bottom:1rem;">
+        <h2 class="subtitle has-text-centered">
+          <strong>DCHM</strong> fuses sparse multiview images with depth-consistent, superpixel-wise 
+          Gaussian splatting to create accurate, label-free 3D pedestrian models that surpass prior methods.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+                <!-- <img src="materials\image\puzzles_cover.jpg" class="center"> -->
+                <p>
+                    Multiview pedestrian detection typically involves two stages: human modeling and pedestrian localization. 
+                    Human modeling represents pedestrians in 3D space by fusing multiview information, making its quality crucial for detection accuracy. 
+                    However, existing methods often introduce noise and have low precision. While some approaches reduce noise by fitting on costly multiview 
+                    3D annotations, they often struggle to generalize across diverse scenes. To eliminate reliance on human-labeled annotations and accurately
+                    model humans, we propose Depth-Consistent Human Modeling (<strong>DCHM</strong>), a framework designed for consistent depth estimation and multiview fusion 
+                    in global coordinates. Specifically, our proposed pipeline with superpixel-wise Gaussian Splatting  achieves multiview depth consistency 
+                    in sparse-view, large-scaled, and crowded scenarios, producing precise point clouds for pedestrian localization. Extensive validations 
+                    demonstrate that our method significantly reduces noise during human modeling, outperforming previous state-of-the-art baselines. 
+                    Additionally, to our knowledge, <strong>DCHM</strong> is the first to reconstruct pedestrians and perform multiview segmentation in such a challenging setting.
+                </p>
+            </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+  <section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-top: -20px">Method</h2>
+        
+        <img src="materials\image\DCHM_Modeling.jpg" class="center">
+        <div class="content has-text-justified">
+            <p style="margin-top: 20px">
+              <strong>Human Modeling.</strong> 
+              We represent pedestrians as collections of segmented Gaussian primitives to enable multiview detection. 
+              Our pipeline reconstructs and segments pedestrians in challenging <em>sparse-view</em>, <em>large-scale</em>, and <em>occluded</em> environments.
+            </p>
+
+        </div>
+        
+        <img src="materials\image\DCHM_Pipeline.jpg" class="center">
+        <div class="content has-text-justified">
+            <p style="margin-top: 20px">
+                <strong>Overview of the framework</strong>. The proposed multiview detection pipeline consists of separate training (left) and inference (right) stages. 
+                During training, human modeling optimization refines mono-depth estimation for multiview consistent depth prediction, via pseudo-depth generation, 
+                mono-depth fine-tuning, and detection compensation. Specifically, we leverage superpixel to improve the Gaussians optimization in sparse-view setting.
+                During inference, the optimized mono-depth produces Gaussians to model humans that are segmented and clustered to detect pedestrians, shown as blue points on the BEV plane.
+            </p>
+        </div>
+    
+
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+  <style>
+  .video-wrapper {
+    position: relative;
+    width: 90%;      
+    /* max-width: 600px;  */
+    /* margin: 0 auto;    */
+    border-radius: 12px;  
+    overflow: hidden;     
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+  }
+  .video-wrapper video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+  <section class="hero is-light">
+    <div class="hero-body" style="padding: 0;">
+      <div class="container is-max-desktop">
+        <h3 class="title is-3" style="margin-top: 20px;">Comparison</h3>
+        <div class="content has-text-justified">
+          <p>
+            <strong>DCHM</strong> fuses monocular depth estimates into a single, globally consistent point cloud for downstream task. 
+            Unlike stereo methods <sup>[<a href="https://github.com/naver/mast3r">1</a>]</sup> that break down under heavy occlusion and low-resolution inputs, and monocular baselines <sup>[<a href="https://github.com/DepthAnything/Depth-Anything-V2">2</a>], 
+              [<a href="https://github.com/YvanYin/Metric3D">3</a>], [<a href="https://github.com/apple/ml-depth-pro">4</a>], [<a href="https://github.com/prs-eth/Marigold">5</a>]</sup> that misalign across cameras, 
+            <strong>DCHM</strong> enforces cross-view depth consistency, yielding higher detection accuracy.
+          </p>
+        </div>
+
+        <div class="video-wrapper">
+          <video id="teaser" autoplay controls muted loop playsinline>
+            <source src="materials/video/video1.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+  </div>
+  </section>
+
+  
+  <style>
+  .video-wrapper_cnt {
+    position: relative;
+    width: 60%;      
+    /* max-width: 600px;  */
+    margin: 0 auto;   
+    border-radius: 12px;  
+    overflow: hidden;     
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+  }
+  .video-wrapper_cnt video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+  <section class="hero is-light">
+    <div class="hero-body" style="padding: 0;">
+      <div class="container is-max-desktop">
+        <h3 class="title is-3" style="margin-top: 20px;">Results</h3>
+        <div class="content has-text-justified">
+          <p>
+            Pedestrians, represented by segmented Gaussians, are assigned unique IDs indicated by distinct colors. Matching occurs in 3D and is projected onto 2D image marks across camera views, with correspondences highlighted in colored circles.
+          </p>
+        </div>
+
+        <div class="video-wrapper_cnt">
+          <video id="teaser" autoplay controls muted loop playsinline>
+            <source src="materials/video/video2.mp4" type="video/mp4">
+          </video>
+        </div>
+
+      </div>
+  </div>
+</section>
+
+  
+  
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>Coming soon...</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content" style="text-align: center;">
+            <p>
+              The page template is borrowed from  <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="static/js/model-viewer.js"></script>
+  <script src="static/js/gallery.js"></script>
+  <script src="static/js/selection-panel.js"></script>
+
+  <script src="static/js/comparison.js"></script>
+
+  <script src="static/js/video_comparison.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,2 @@
+# DCHM: Depth-Consistent Human Modeling for Multiview Detection
+This repository hosts the project page for [**DCHM**](https://jiahao-ma.github.io/DCHM/), a method that fuses multiview images into a consistent segmented point cloud using superpixel-wise Gaussian Splatting, in sparse-view, large-scale, and crowded scenarios, producing precise point clouds for pedestrian localization. The source code is available at [**GitHub**](https://github.com/Jiahao-Ma/DCHM-code).
